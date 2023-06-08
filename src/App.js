@@ -2,15 +2,18 @@ import './App.css';
 import ieslaveredalogo from './imagenes/ieslavereda.png';
 import Boton from './componentes/boton';
 import Contador from './componentes/contador';
+import { useState } from 'react';
 
 function App() {
 
+  const [numClicks, setNumClicks] = useState(0);
+
   const manejarClick = () => {
-    console.log('Click');
+    setNumClicks(numClicks + 1);
   }
 
   const reiniciarContador = () => {
-    console.log('Reiniciar');
+    setNumClicks(0);
   }
 
   return (
@@ -22,7 +25,7 @@ function App() {
           alt='Logo de IES La Vereda' />
       </div>
       <div className="contenedor-principal">
-      <Contador numClicks='5' />      
+      <Contador numClicks= { numClicks } />      
         <Boton 
           texto_boton='Click'
           esBotonDeClick={ true }
